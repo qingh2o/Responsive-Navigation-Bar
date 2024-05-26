@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accessibox Provide You With Accessible Web Components">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Accessibox</title>
+    <link rel="stylesheet" href="nav2.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <!-- Logo and Menu button -->
+        <div class="nav-logo-container">
+            <a href="index.html" class="nav-logo">
+                <img src="Logo1.png" alt="Accessibox Logo" height="64" width="">
+            </a>
+            <!-- Menu button -->
+            <button id="mobileMenuTrigger" aria-expanded="false" aria-controls="navigationLinks"
+                title="Open and Close Navigation">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </button>
+        </div>
+
+        <!-- Drop down Menu bar-->
+        <div id="navigationLinks" class="nav-links-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="themes.html">Themes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-socials">
+                <a href="www.linkedin.com/in/qing-qing-yang-designer" title="Visit Github Page" target="_blank"
+                    rel="nooperner">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="www.linkedin.com/in/qing-qing-yang-designer" title="Visit Linkedin Page" target="_blank"
+                    rel="nooperner">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="www.linkedin.com/in/qing-qing-yang-designer" title="Visit facebook Page" target="_blank"
+                    rel="nooperner">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Desktop Nav -->
+
+
+    </header>
+
+    <script>
+        const mobileMenuTrigger = document.getElementById('mobileMenuTrigger');
+        const mobileMenu = document.querySelector('.nav-links-container');
+        const navLinks = document.querySelectorAll('.nav-links li a');
+
+        //Open or close Menu button
+        mobileMenuTrigger.addEventListener('click', () => {
+
+            // when active Menu button transorm to X button
+            mobileMenuTrigger.classList.toggle('active');
+
+            // when active container expand 
+            mobileMenu.classList.toggle('active');
+
+            //Toggle aria-expanded attribute true / false
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenuTrigger.setAttribute('aria-expanded', 'true');
+            } else {
+                mobileMenuTrigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Provide styling for Current Page Anchor Tag
+        navLinks.forEach((link) => {
+            if (link.href === window.location.href) {
+                link.setAttribute('aria-current', 'page');
+                console.log('link', link.href);
+                console.log('Window', window.location.href);
+            }
+        })
+
+        //Click Escape of Dropdowm meun will close the Drop down Menu bar
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                mobileMenuTrigger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        })
+    </script>
+</body>
+
+</html>
