@@ -8,11 +8,6 @@
     box-sizing: border-box;
 }
 
-/* html,
-body{
-    overflow-x: hidden;
-} */
-
 body {
     min-height: 100vh;
     background-color: white;
@@ -28,19 +23,24 @@ a {
     color: rgb(68, 68, 68);
 }
 
-/* Current page style */
-.nav-links li a[aria-current='page'] {
-    background:rgb(238, 228, 248) ;
-    padding: 4px 8px;
-    border-radius: 10px;
+header {
+    box-shadow: 2px 2px 8px -6px #101a67;
 }
 
-/* ----------------------- */
-/* Nav Container */
-#navbar {
-    box-shadow: 2px 2px 8px -6px #101a67;
-    /* background-color: rgb(238, 228, 248); */
-    /* background-color: rgb(246, 240, 253); */
+.nav-links li a {
+    padding: 6px 10px;
+}
+
+/* Current page style */
+.nav-links li a[aria-current='page'] {
+    background: #ECF7FF;
+    border-radius: 8px;
+}
+
+/* Navigation link setting*/
+.nav-links li a:hover{
+    background: #D8EEFF;
+    border-radius: 8px;
 }
 
 /* Menu button */
