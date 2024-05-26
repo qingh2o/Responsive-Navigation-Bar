@@ -38,7 +38,7 @@ header {
 }
 
 /* Navigation link setting*/
-.nav-links li a:hover{
+.nav-links li a:hover {
     background: #D8EEFF;
     border-radius: 8px;
 }
@@ -92,18 +92,23 @@ header {
     padding-bottom: 40px;
 }
 
+.nav-socials a:hover {
+    color: #00A4FF;
+}
+
+
 /* Drop down Menu container */
 .nav-links-container {
     /* border: solid; */
     /* default state - when not clicked the container hidden*/
+    display: none;
     max-height: 0px;
     overflow-y: hidden;
-
-    transition: max-height 0.5s ease-in-out;
 }
 
 /* active state - when clicked the container expand */
 .active {
+    display: block;
     max-height: 2000px;
 }
 

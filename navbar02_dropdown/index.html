@@ -22,7 +22,7 @@
                 </a>
                 <!-- Menu button -->
                 <button id="mobileMenuTrigger" aria-expanded="false" aria-controls="navigationLinks"
-                    title=" Navigation Menu">
+                    title="Open Navigation Menu">
                     <div class="line1"></div>
                     <div class="line2"></div>
                     <div class="line3"></div>
@@ -33,7 +33,7 @@
             <div id="navigationLinks" class="nav-links-container">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="docs.html" target="_blank">Docs</a></li>
+                    <li><a href="docs.html">Docs</a></li>
                     <li><a href="components.html">Components</a></li>
                     <li><a href="themes.html">Themes</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -56,25 +56,35 @@
         </nav>
     </header>
 
+    <main>
+        <div style="max-width: 80ch; margin: 64px auto; padding: 24px; text-align: center;">
+            <h1>Main Content</h1>
+            <a href="index.html" rel="noopener noreferrer">Links</a>
+        </div>
+    </main>
+
+
     <script>
         const mobileMenuTrigger = document.getElementById('mobileMenuTrigger');
         const mobileMenu = document.querySelector('.nav-links-container');
         const navLinks = document.querySelectorAll('.nav-links li a');
 
-        //Open or close Menu button
-        mobileMenuTrigger.addEventListener('click', () => {
+        // Open or close Menu button
+        mobileMenuTrigger.addEventListener('click', (event) => {
+            // Prevent click event from bubbling up to the document
+            event.stopPropagation();
 
-            // when active Menu button transorm to X button
+            // Toggle active state for button and menu
             mobileMenuTrigger.classList.toggle('active');
-
-            // when active container expand 
             mobileMenu.classList.toggle('active');
 
-            //Toggle aria-expanded attribute true / false
+            // Toggle aria-expanded attribute and button title
             if (mobileMenu.classList.contains('active')) {
                 mobileMenuTrigger.setAttribute('aria-expanded', 'true');
+                mobileMenuTrigger.setAttribute('title', 'Close Navigation Menu');
             } else {
                 mobileMenuTrigger.setAttribute('aria-expanded', 'false');
+                mobileMenuTrigger.setAttribute('title', 'Open Navigation Menu');
             }
         });
 
@@ -82,8 +92,6 @@
         navLinks.forEach((link) => {
             if (link.href === window.location.href) {
                 link.setAttribute('aria-current', 'page');
-                console.log('link', link.href);
-                console.log('Window', window.location.href);
             }
 
             // Collapse menu when a link is clicked
@@ -91,6 +99,7 @@
                 mobileMenuTrigger.classList.remove('active');
                 mobileMenu.classList.remove('active');
                 mobileMenuTrigger.setAttribute('aria-expanded', 'false');
+                mobileMenuTrigger.setAttribute('title', 'Open Navigation Menu');
             });
         })
 
@@ -99,8 +108,20 @@
             if (event.key === 'Escape') {
                 mobileMenuTrigger.classList.remove('active');
                 mobileMenu.classList.remove('active');
+                mobileMenuTrigger.setAttribute('aria-expanded', 'false');
+                mobileMenuTrigger.setAttribute('title', 'Open Navigation Menu');
             }
         })
+
+        // Collapse the menu when clicking outside of it
+        document.addEventListener('click', (event) => {
+            if (!mobileMenu.contains(event.target) && !mobileMenuTrigger.contains(event.target)) {
+                mobileMenuTrigger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenuTrigger.setAttribute('aria-expanded', 'false');
+                mobileMenuTrigger.setAttribute('title', 'Open Navigation Menu');
+            }
+        });
     </script>
 </body>
 
