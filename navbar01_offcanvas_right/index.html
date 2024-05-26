@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nav1 Rightside </title>
-    <link rel="stylesheet" href="nav1.css">
+    <title>Nav1 Offcanvas Right </title>
+    <link rel="stylesheet" href="nav01.css">
 </head>
 
 <body>
@@ -98,12 +98,32 @@
 
     <main>
         <div style="max-width: 80ch; margin: 64px auto; padding: 24px; text-align: center;">
-            <h1 style="font-weight: 500; padding: 24px;">Contact</h1>
-         
+            <h1 style="font-weight: 500; padding: 24px;">Accessible Responsive Navigation bar</h1>
+            <p style="font-weight: 500; font-size: larger;">Offcanvas right</p>
+            <div>
+                <h2 style="font-weight: 500; padding: 24px;"> HTML Structure</h2>
+                <p><b>Elements wrap inside of navbar:</b> <br><br>Section 1: Desktop Nav container <br>Logo + Navigation
+                    Links + Menu
+                    Button <br>
+                    <br>Section 2: Sidebar container <br>Close Button + Sidebar Menu
+                </p>
+                <p style="padding: 24px;"><b>Element outside of navbar/header:</b> <br><br>Overlay with onclick event
+                </p>
+            </div>
+            <div>
+                <h2 style="font-weight: 500; padding: 24px;"> CSS and JavaScript</h2>
+                <p><b>CSS setting</b> <br> <br>Sidebar Container: display none/flex <br>
+                    <br>Overlay: display none/flex <br><br>Smaller screen: Navigation Links display none
+                    <br><br>Smaller screen: Menu Button display block
+                </p>
+                <p style="padding: 24px;"><b>JavaScript</b> <br><br>Toggle sidebar: display flex/none <br><br>Toggle
+                    overlay: display block/none <br><br>Keyboard nav and focus: Escape + ArrowDown + Tab keys
+                </p>
+            </div>
         </div>
     </main>
 
-   <script src="nav1.js"></script>
+    <script src="nav01.js"></script>
 </body>
 
 </html>
