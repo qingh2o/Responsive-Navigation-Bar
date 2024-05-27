@@ -9,8 +9,11 @@
 
 body {
     min-height: 100vh;
-    background-color: rgb(226, 226, 226);
+    background-color: rgba(226, 226, 226, 0.171);
     font-family: "Commissioner", sans-serif;
+}
+header {
+    box-shadow: 2px 2px 8px -6px #b1b2b9;
 }
 
 /* Transition effect for links and button*/
@@ -103,8 +106,9 @@ nav li a[aria-current='page'] {
 .menu-btn:hover,
 .menu-btn :focus {
     border-radius: 6px;
-    background-color: lightgrey;
+    background-color: lightgrey;  
 }
+
 
 /* ---- Sidebar Layout */
 .sidebar {
@@ -133,9 +137,10 @@ nav li a[aria-current='page'] {
 }
 
 /* ---- Close button setting*/
-.btn-container{
+.btn-container {
     height: 56px;
 }
+
 .close-btn {
     margin: 12px 32px auto auto;
     border: none;
